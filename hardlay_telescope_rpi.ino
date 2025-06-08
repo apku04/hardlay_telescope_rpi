@@ -1,6 +1,6 @@
 // -------------------- Pin Definitions --------------------
 constexpr int MAIN_STOP = 3;
-const int BACKOFF_AFTER_HOME = 10;  // Steps to move away after homing
+const int BACKOFF_AFTER_HOME = 100;  // Steps to move away after homing
 
 enum Axis { AZM = 0, ALT, AXIS_COUNT };
 
