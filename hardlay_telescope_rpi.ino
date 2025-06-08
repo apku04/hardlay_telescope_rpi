@@ -1,5 +1,6 @@
 // -------------------- Pin Definitions --------------------
 constexpr int MAIN_STOP = 3;
+const int BACKOFF_AFTER_HOME = 10;  // Steps to move away after homing
 
 enum Axis { AZM = 0, ALT, AXIS_COUNT };
 
@@ -119,6 +120,13 @@ void homeAxis(Axis idx) {
 
   // 4. Set current position
   ax.position = 0;
+  
+   // Move off the switch so it isn't held down
+  digitalWrite(ax.dirPin, ax.dirInvert ? LOW : HIGH);
+  for(int i = 0; i < BACKOFF_AFTER_HOME; ++i) {
+    stepMotor(idx, ax.slowDelay);
+  }
+  
   disableMotor(idx);
 
   Serial.println("Homing done!");
