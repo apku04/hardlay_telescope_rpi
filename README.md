@@ -1,0 +1,1 @@
+# hardlay_telescope_rpi
