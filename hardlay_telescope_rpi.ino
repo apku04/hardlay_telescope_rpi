@@ -67,8 +67,8 @@ void setup() {
   homeAxis(ALT_MOTOR);
 
   // Move to center
-  goToCenterOffset(AZM_MOTOR, offset[AZM_MOTOR], FAST_DELAY_US);
-  goToCenterOffset(ALT_MOTOR, offset[ALT_MOTOR], FAST_DELAY_US);
+  goToCenterOffset(AZM_MOTOR, offset[AZM_MOTOR], FAST_DELAY_US[AZM_MOTOR]);
+  goToCenterOffset(ALT_MOTOR, offset[ALT_MOTOR], FAST_DELAY_US[ALT_MOTOR]);
   
 
   didCenterMove = true;
@@ -91,8 +91,8 @@ void loop() {
   long target_azm = offset[AZM_MOTOR] + map(pot_azm, 0, 1023, -span / 2, span / 2);
   long target_alt = offset[ALT_MOTOR] + map(pot_alt, 0, 1023, -span / 2, span / 2);
 
-  moveStepperWithSpeed(AZM_MOTOR, target_azm, SLOW_DELAY_US);
-  moveStepperWithSpeed(ALT_MOTOR, target_alt, SLOW_DELAY_US);
+  moveStepperWithSpeed(AZM_MOTOR, target_azm, SLOW_DELAY_US[AZM_MOTOR]);
+  moveStepperWithSpeed(ALT_MOTOR, target_alt, SLOW_DELAY_US[ALT_MOTOR]);
 }
 
 // ------------------------------------------------------------
